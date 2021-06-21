@@ -1,0 +1,12 @@
+export 'package:carwash/ExtraScreen/AboutUs.dart';
+export 'package:carwash/Screen/BookedPage.dart';
+export 'package:carwash/Screen/ConfirmationPage.dart';
+export 'package:carwash/Screen/HomePage.dart';
+export 'package:carwash/Screen/InitialPage.dart';
+export 'package:carwash/FormScreen/LoginPage.dart';
+export 'package:carwash/FormScreen/RegisterPage.dart';
+export 'package:carwash/ExtraScreen/WebViewPage.dart';
+export 'package:carwash/ExtraScreen/NoInternetPage.dart';
+export 'package:carwash/ExtraScreen/LoadingScreen.dart';
+export 'package:carwash/Screen/CartPage.dart';
+export 'package:carwash/Screen/CarCategoriesPage.dart';

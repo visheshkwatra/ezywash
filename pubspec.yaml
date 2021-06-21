@@ -1,0 +1,40 @@
+name: carwash
+description: EzyWash is a car service app.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 2.0.1+2
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  connectivity:
+  cupertino_icons:
+  date_format:
+  flutter_staggered_grid_view:
+  geocoding:
+  geolocator:
+  google_maps_flutter: ^2.0.6
+  http:
+  intl:
+  liquid_progress_indicator:
+  loading_overlay:
+  mailer:
+  permission_handler:
+  shared_preferences:
+  webview_flutter:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+dependency_overrides:
+  # Override path_provider to pick up fixes for FFI changes.
+  path_provider: ^2.0.0-nullsafety.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - IMAGES/
