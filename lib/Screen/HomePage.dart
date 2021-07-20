@@ -6223,61 +6223,61 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    'Choose Time',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onBackground),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      _selectTime(context);
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 64),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                                width: 1.0), // set border width
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(32.0))),
-                                        child: TextFormField(
-                                          style: TextStyle(
-                                              fontSize: 24,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onBackground),
-                                          textAlign: TextAlign.center,
-                                          onSaved: (String val) {
-                                            SelectedInformation.time = val;
-                                          },
-                                          validator: (value) {
-                                            if (selectedTime == null)
-                                              return "Enter Time";
+                                  // SizedBox(
+                                  //   height: 20,
+                                  // ),
+                                  // Text(
+                                  //   'Choose Time',
+                                  //   style: TextStyle(
+                                  //       fontWeight: FontWeight.w500,
+                                  //       fontSize: 18,
+                                  //       color: Theme.of(context)
+                                  //           .colorScheme
+                                  //           .onBackground),
+                                  // ),
+                                  // InkWell(
+                                  //   onTap: () {
+                                  //     _selectTime(context);
+                                  //   },
+                                  //   child: Padding(
+                                  //     padding: const EdgeInsets.symmetric(
+                                  //         horizontal: 64),
+                                  //     child: Container(
+                                  //       decoration: BoxDecoration(
+                                  //           border: Border.all(
+                                  //               color: Theme.of(context)
+                                  //                   .colorScheme
+                                  //                   .secondary,
+                                  //               width: 1.0), // set border width
+                                  //           borderRadius: BorderRadius.all(
+                                  //               Radius.circular(32.0))),
+                                  //       child: TextFormField(
+                                  //         style: TextStyle(
+                                  //             fontSize: 24,
+                                  //             color: Theme.of(context)
+                                  //                 .colorScheme
+                                  //                 .onBackground),
+                                  //         textAlign: TextAlign.center,
+                                  //         onSaved: (String val) {
+                                  //           SelectedInformation.time = val;
+                                  //         },
+                                  //         validator: (value) {
+                                  //           if (selectedTime == null)
+                                  //             return "Enter Time";
 
-                                            return null;
-                                          },
-                                          enabled: false,
-                                          keyboardType: TextInputType.text,
-                                          controller: _timeController,
-                                          decoration: InputDecoration(
-                                              // labelText: 'Time',
-                                              contentPadding:
-                                                  EdgeInsets.all(5)),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                  //           return null;
+                                  //         },
+                                  //         enabled: false,
+                                  //         keyboardType: TextInputType.text,
+                                  //         controller: _timeController,
+                                  //         decoration: InputDecoration(
+                                  //             // labelText: 'Time',
+                                  //             contentPadding:
+                                  //                 EdgeInsets.all(5)),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                   SizedBox(
                                     height: 12,
                                   ),

@@ -1,3 +1,4 @@
+import 'package:carwash/Model/Model.dart';
 import 'package:carwash/Model/SelectedInformationModel.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -75,6 +76,7 @@ class Booking {
     print(SelectedInformation.customerID);
     print(SelectedInformation.productID);
     print(SelectedInformation.date);
+
     print(SelectedInformation.time);
     print(SelectedInformation.categoryName);
     print(SelectedInformation.customerPhoneNumber);
@@ -86,7 +88,7 @@ class Booking {
             "customer": SelectedInformation.customerID.toString(),
             "product": SelectedInformation.productID.toString(),
             "date": SelectedInformation.date.toString(),
-            "time": SelectedInformation.time.toString(),
+            "time": "12:00 PM",
             "name": SelectedInformation.categoryName.toString(),
             "phone": SelectedInformation.customerPhoneNumber.toString(),
             "address": SelectedInformation.customerAddress.toString(),
