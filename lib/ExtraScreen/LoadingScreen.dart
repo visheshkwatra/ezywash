@@ -3,7 +3,7 @@ import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({
-    Key key,
+    Key? key, // Add the "?" to indicate it can be null
   }) : super(key: key);
 
   @override
@@ -19,12 +19,12 @@ class LoadingScreen extends StatelessWidget {
             backgroundColor: Theme.of(context).colorScheme.background,
             borderColor: Theme.of(context).colorScheme.secondary,
             borderWidth: 1,
-            direction: Axis
-                .vertical, // The direction the liquid moves (Axis.vertical = bottom to top, Axis.horizontal = left to right). Defaults to Axis.vertical.
+            direction: Axis.vertical,
             center: Text(
               "Loading...",
-              style:
-                  TextStyle(color: Theme.of(context).colorScheme.onBackground),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
             ),
           ),
         ),

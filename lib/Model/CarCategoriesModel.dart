@@ -12,7 +12,7 @@ class CarCategories {
     CarCategories(name: 'Monthly', imgData: '', id: 4),
   ];
 
-  CarCategories({this.name, this.imgData, this.id});
+  CarCategories({required this.name, required this.imgData, required this.id});
 }
 
 /*

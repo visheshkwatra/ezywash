@@ -19,13 +19,13 @@ class Products {
   static List<Products> selectedProducts = [];
 
   Products(
-      {this.name,
-      this.description,
-      this.productID,
-      this.mainID,
-      this.categoryID,
-      this.sellingPrice,
-      this.discountPrice});
+      {required this.name,
+      required this.description,
+      required this.productID,
+      required this.mainID,
+      required this.categoryID,
+      required this.sellingPrice,
+      required this.discountPrice});
 
   /// fetching Products data from Products Api
   static Future<void> getProducts() async {
@@ -33,7 +33,7 @@ class Products {
 
     try {
       http.Response response = await http
-          .get('https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/product/');
+          .get('https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/product/' as Uri);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         for (int i = 0; i < data.length; i++) {

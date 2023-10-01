@@ -1,5 +1,5 @@
 class SelectedInformation {
-  static String customerName,
+  static late String customerName,
       customerEmail,
       customerPhoneNumber,
       mainCategoryName,
@@ -9,10 +9,10 @@ class SelectedInformation {
       time,
       customerAddress,
       productDescription;
-  static double productPrice;
-  static int customerID, mainCategoryID, categoryID, productID;
+  static late double productPrice;
+  static late int customerID, mainCategoryID, categoryID, productID;
   // to track the routing information.
-  static bool isLoginFromHome;
+  static late bool isLoginFromHome;
 
   static void showData() {
     print("Customer Address:  " + customerAddress);

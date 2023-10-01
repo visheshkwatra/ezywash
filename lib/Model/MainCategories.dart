@@ -33,5 +33,5 @@ class MainCategories {
     MainCategories(name: "MPV", id: 9, imgData: "01.png"),
   ];
 
-  MainCategories({this.name, this.imgData, this.id});
+  MainCategories({required this.name, required this.imgData, required this.id});
 }

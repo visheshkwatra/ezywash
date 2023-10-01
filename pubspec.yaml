@@ -4,12 +4,13 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 2.0.1+2
 
 environment:
-  sdk: '>=2.10.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
+dev.flutter/flutter:
+  version: ^3.13.6
   connectivity:
   cupertino_icons:
   date_format:
@@ -24,11 +25,14 @@ dependencies:
   mailer:
   permission_handler:
   shared_preferences:
-  webview_flutter:
+  webview_flutter: ^3.0.0
+  file: ^6.0.0-nullsafety.4
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test: ^1.24.1
 
 dependency_overrides:
   # Override path_provider to pick up fixes for FFI changes.

@@ -6,7 +6,7 @@ import 'HomePage.dart';
 
 class CarCategoriesPage extends StatefulWidget {
   static String id = 'CarCategories';
-  const CarCategoriesPage({Key key}) : super(key: key);
+  const CarCategoriesPage({Key? key}) : super(key: key);
 
   @override
   _CarCategoriesPageState createState() => _CarCategoriesPageState();

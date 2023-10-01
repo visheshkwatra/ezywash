@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class EzyWashLogo extends StatelessWidget {
   const EzyWashLogo({
-    Key key,
+    Key? key,
     this.size = 80.0,
   }) : super(key: key);
 

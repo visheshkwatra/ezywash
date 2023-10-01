@@ -17,7 +17,7 @@ class Categories {
   /// for sanitization , it has all sanitization categories
   static List<Categories> selectedCategories = [];
 
-  Categories({this.name, this.mainID, this.categoryID});
+  Categories({required this.name, required this.mainID, required this.categoryID});
 
   /// fetching Categories data from Categories Api
   static Future<void> getCategories() async {
@@ -25,7 +25,7 @@ class Categories {
 
     try {
       http.Response response = await http
-          .get('https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/c/');
+          .get('https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/c/' as Uri);
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         for (int i = 0; i < data.length; i++) {

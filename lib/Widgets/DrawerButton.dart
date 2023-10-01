@@ -3,8 +3,8 @@ import 'dart:ui' as ui;
 
 class DrawerButton extends StatelessWidget {
   const DrawerButton({
-    Key key,
-    @required GlobalKey<ScaffoldState> scaffoldKey,
+    Key? key,
+    required GlobalKey<ScaffoldState> scaffoldKey,
   })  : _scaffoldKey = scaffoldKey,
         super(key: key);
 
@@ -24,10 +24,10 @@ class DrawerButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
           child: GestureDetector(
             onHorizontalDragStart: (drag) {
-              _scaffoldKey.currentState.openDrawer();
+              _scaffoldKey.currentState!.openDrawer();
             },
             onTap: () {
-              _scaffoldKey.currentState.openDrawer();
+              _scaffoldKey.currentState!.openDrawer();
             },
             child: ShaderMask(
                 blendMode: BlendMode.srcIn,

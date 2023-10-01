@@ -7,16 +7,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:carwash/Screen/screens.dart';
 
 class UserRegister extends StatefulWidget {
-  static String id = "RegisterLogin";
+  static const String id = "RegisterLogin"; // Define id as a named parameter
 
   @override
   _UserRegisterState createState() => _UserRegisterState();
 }
 
 class _UserRegisterState extends State<UserRegister> {
-  String name, email, phoneNumber, password;
+  late String name, email, phoneNumber, password;
   GlobalKey<FormState> formKey = new GlobalKey<FormState>();
-  int userID;
+  late int userID;
   bool isLoading = false;
 
   @override
@@ -83,7 +83,7 @@ class _UserRegisterState extends State<UserRegister> {
                                     icon: Icons.supervised_user_circle_outlined,
                                     onSave: (value) {
                                       setState(() {
-                                        name = value;
+                                        name = value!;
                                       });
                                     },
                                     onValidate: (value) {
@@ -103,11 +103,11 @@ class _UserRegisterState extends State<UserRegister> {
                                   keyboardType: TextInputType.emailAddress,
                                   onSave: (value) {
                                     setState(() {
-                                      email = value;
+                                      email = value!;
                                     });
                                   },
                                   onValidate: (value) {
-                                    if (!value.contains("@")) {
+                                    if (!value!.contains("@")) {
                                       return 'Email Must Be Valid';
                                     }
                                     return null;
@@ -121,11 +121,11 @@ class _UserRegisterState extends State<UserRegister> {
                                   label: "Phone Number",
                                   onSave: (value) {
                                     setState(() {
-                                      phoneNumber = value;
+                                      phoneNumber = value!;
                                     });
                                   },
                                   onValidate: (value) {
-                                    if (value.length != 10) {
+                                    if (value!.length != 10) {
                                       return 'Phone Number must be of 10 Digit';
                                     }
                                     return null;
@@ -142,7 +142,7 @@ class _UserRegisterState extends State<UserRegister> {
                                     keyboardType: TextInputType.text,
                                     onSave: (value) {
                                       setState(() {
-                                        password = value;
+                                        password = value!;
                                       });
                                     },
                                     onValidate: (value) {
@@ -177,8 +177,8 @@ class _UserRegisterState extends State<UserRegister> {
                                       ),
                                     ),
                                     onPressed: () async {
-                                      if (formKey.currentState.validate()) {
-                                        formKey.currentState.save();
+                                      if (formKey.currentState!.validate()) {
+                                        formKey.currentState!.save();
                                         setState(() {
                                           isLoading = true;
                                         });
@@ -202,7 +202,7 @@ class _UserRegisterState extends State<UserRegister> {
                                               name: name,
                                               email: email,
                                               password: password,
-                                              phoneNumber: phoneNumber));
+                                              phoneNumber: phoneNumber, id: 00));
                                           SharedPreferences pref =
                                               await SharedPreferences
                                                   .getInstance();

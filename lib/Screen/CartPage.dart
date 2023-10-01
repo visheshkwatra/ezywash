@@ -8,7 +8,7 @@ import 'package:carwash/Model/Model.dart';
 class CartPage extends StatefulWidget {
   static String id = "CartPage";
 
-  const CartPage({Key key}) : super(key: key);
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   _CartPageState createState() => _CartPageState();

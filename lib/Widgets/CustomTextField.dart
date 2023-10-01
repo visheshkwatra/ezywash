@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  final Function(String text) onValidate;
-  final Function(String text) onSave;
+  final String? Function(String?)? onValidate;
+  final void Function(String?)? onSave;
   final String label;
   final bool isObscure;
   final TextInputType keyboardType;
   final IconData icon;
   CustomTextField(
-      {@required this.label,
-      @required this.onSave,
-      @required this.onValidate,
-      this.isObscure,
-      this.keyboardType,
-      this.icon});
+      {required this.label,
+      required this.onSave,
+      required this.onValidate,
+      required this.isObscure,
+      required this.keyboardType,
+      required this.icon});
   @override
   Widget build(BuildContext context) {
     return Container(

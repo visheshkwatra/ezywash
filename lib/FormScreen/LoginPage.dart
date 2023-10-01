@@ -12,7 +12,7 @@ class UserLogin extends StatefulWidget {
 }
 
 class _UserLoginState extends State<UserLogin> {
-  String email, password;
+  late String email, password;
   GlobalKey<FormState> formKey = new GlobalKey<FormState>();
 
   @override
@@ -86,11 +86,11 @@ class _UserLoginState extends State<UserLogin> {
                                 keyboardType: TextInputType.emailAddress,
                                 onSave: (value) {
                                   setState(() {
-                                    email = value;
+                                    email = value!;
                                   });
                                 },
                                 onValidate: (value) {
-                                  if (!value.contains("@")) {
+                                  if (!value!.contains("@")) {
                                     return 'Email Must Be Valid';
                                   }
                                   return null;
@@ -107,7 +107,7 @@ class _UserLoginState extends State<UserLogin> {
                                   keyboardType: TextInputType.text,
                                   onSave: (value) {
                                     setState(() {
-                                      password = value;
+                                      password = value!;
                                     });
                                   },
                                   onValidate: (value) {
@@ -142,8 +142,8 @@ class _UserLoginState extends State<UserLogin> {
                                   ),
                                   onPressed: () async {
                                     try {
-                                      if (formKey.currentState.validate()) {
-                                        formKey.currentState.save();
+                                      if (formKey.currentState!.validate()) {
+                                        formKey.currentState!.save();
                                         int i;
 
                                         /// to authenticate customer that customer is present or not
@@ -175,10 +175,8 @@ class _UserLoginState extends State<UserLogin> {
                                                 'name',
                                                 Customers.customers[i].name ??
                                                     '');
-                                            pref.setInt(
-                                                'UserId',
-                                                Customers.customers[i].id ??
-                                                    '');
+                                            pref.setInt('UserId', Customers.customers[i].id as int);
+
                                             pref.setString(
                                                 'phoneNumber',
                                                 Customers.customers[i]

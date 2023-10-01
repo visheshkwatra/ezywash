@@ -15,84 +15,84 @@ class InitialPage extends StatefulWidget {
 }
 
 class _InitialPageState extends State<InitialPage> {
-  bool hasNetwork = true; // to check whether device has internet access or not
-  int userID;
+  bool hasNetwork = true; // to check whether the device has internet access or not
+  late int userID;
 
-  /// To ensure app will not close on pressing back button
-  Future<bool> _onWillPop() {
-    return showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            backgroundColor: Theme.of(context).colorScheme.background,
-            title: Center(
-              child: Text(
-                'Are you sure?',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            content: Text(
-              'Do you want to exit an App',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onBackground,
-                fontSize: 18,
-              ),
-            ),
-            actions: <Widget>[
-              ElevatedButton(
-                style: ButtonStyle(
-                    elevation: MaterialStateProperty.all(10),
-                    backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).colorScheme.background)),
-                onPressed: () => Navigator.of(context).pop(false),
-                child: Text(
-                  'No',
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.secondary),
-                ),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    elevation: MaterialStateProperty.all(10),
-                    backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).colorScheme.background)),
-                onPressed: () => Navigator.of(context).pop(true),
-                child: Text(
-                  'Yes',
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.secondary),
-                ),
-              ),
-            ],
-          ),
-        ) ??
-        false;
-  }
+  /// Check whether the device has Internet access or not
 
-  ///Check whether device has Internet access or not
+
   Future<String> checkNetwork(BuildContext context) async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.none) {
       return "No Network";
     } else {
-      return "Connected to network";
+      return "Connected to the network";
     }
   }
+  /// Getting user data from session
 
-  /// getting user data from session
+  /// To ensure the app will not close on pressing the back button
+  Future<bool> _onWillPop() async {
+    return await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        title: Center(
+          child: Text(
+            'Are you sure?',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
+          ),
+        ),
+        content: Text(
+          'Do you want to exit an App',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onBackground,
+            fontSize: 18,
+          ),
+        ),
+        actions: <Widget>[
+          ElevatedButton(
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(10),
+              backgroundColor:
+              MaterialStateProperty.all(Theme.of(context).colorScheme.background),
+            ),
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(
+              'No',
+              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+            ),
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(10),
+              backgroundColor:
+              MaterialStateProperty.all(Theme.of(context).colorScheme.background),
+            ),
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(
+              'Yes',
+              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+            ),
+          ),
+        ],
+      ),
+    ) ?? false;
+  }
+
   getCurrentUserInfo() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    userID = pref.getInt('UserId');
+    userID = pref.getInt('UserId')!;
     if (userID != null) {
       SelectedInformation.customerID = userID;
-      SelectedInformation.customerPhoneNumber = pref.getString("phone");
-      SelectedInformation.customerName = pref.getString('name');
-      SelectedInformation.customerEmail = pref.getString('email');
-
-      SelectedInformation.customerPhoneNumber = pref.getString('phoneNumber');
+      SelectedInformation.customerPhoneNumber = pref.getString("phone")!;
+      SelectedInformation.customerName = pref.getString('name')!;
+      SelectedInformation.customerEmail = pref.getString('email')!;
+      SelectedInformation.customerPhoneNumber = pref.getString('phoneNumber')!;
     }
   }
 
@@ -114,14 +114,14 @@ class _InitialPageState extends State<InitialPage> {
 
   @override
   Widget build(BuildContext context) {
-    /// If device do not have network access then redirect to NoInternetPage
+    /// If the device does not have network access then redirect to NoInternetPage
     if (hasNetwork == false) {
-      /// The App will show message - No Internet
-      /// And Closes the app after 5 seconds
+      /// The App will show the message - No Internet
+      /// And close the app after 5 seconds
       return NoInternetBuilderScreen();
     } else {
-      /// If device has network access then show MainPage
-      /// It show the loading screen while fetching the MainCategories, Categories and Products from External API's
+      /// If the device has network access then show MainPage
+      /// It shows the loading screen while fetching the MainCategories, Categories, and Products from External APIs
       return SafeArea(
         child: WillPopScope(
           onWillPop: _onWillPop,
@@ -152,8 +152,7 @@ class _InitialPageState extends State<InitialPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context)
-                                .pushNamed(CarCategoriesPage.id);
+                            Navigator.of(context).pushNamed(CarCategoriesPage.id);
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -162,12 +161,9 @@ class _InitialPageState extends State<InitialPage> {
                               Container(
                                 height: MediaQuery.of(context).size.height / 6,
                                 decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .background,
+                                    color: Theme.of(context).colorScheme.background,
                                     image: DecorationImage(
-                                        image:
-                                            AssetImage('IMAGES/carfinal2.png'),
+                                        image: AssetImage('IMAGES/carfinal2.png'),
                                         fit: BoxFit.cover)),
                               ),
                               Padding(
@@ -179,9 +175,7 @@ class _InitialPageState extends State<InitialPage> {
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface),
+                                      color: Theme.of(context).colorScheme.onSurface),
                                 ),
                               ),
                             ],
@@ -206,9 +200,7 @@ class _InitialPageState extends State<InitialPage> {
                               Container(
                                 height: MediaQuery.of(context).size.height / 6,
                                 decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .background,
+                                    color: Theme.of(context).colorScheme.background,
                                     image: DecorationImage(
                                         image: AssetImage('IMAGES/bike.png'),
                                         fit: BoxFit.contain)),
@@ -222,9 +214,7 @@ class _InitialPageState extends State<InitialPage> {
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface),
+                                      color: Theme.of(context).colorScheme.onSurface),
                                 ),
                               ),
                             ],
@@ -249,12 +239,9 @@ class _InitialPageState extends State<InitialPage> {
                               Container(
                                 height: MediaQuery.of(context).size.height / 5,
                                 decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .background,
+                                    color: Theme.of(context).colorScheme.background,
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            'IMAGES/sanitizer remove bg.png'),
+                                        image: AssetImage('IMAGES/sanitizer remove bg.png'),
                                         fit: BoxFit.contain)),
                               ),
                               Padding(
@@ -266,9 +253,7 @@ class _InitialPageState extends State<InitialPage> {
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onSurface),
+                                      color: Theme.of(context).colorScheme.onSurface),
                                 ),
                               ),
                             ],

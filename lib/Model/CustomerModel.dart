@@ -12,13 +12,13 @@ class Customers {
   /// contains all email and password in Map.
   static Map<String, String> uniqueCustomers = {};
 
-  Customers({this.email, this.id, this.password, this.name, this.phoneNumber});
+  Customers({required this.email, required this.id, required this.password, required this.name, required this.phoneNumber});
 
   /// fetching all Customers data from Customer Api
   static Future<void> getCustomers() async {
     try {
       http.Response response = await http
-          .get('https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/customers/');
+          .get('https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/customers/' as Uri);
 
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
@@ -46,7 +46,7 @@ class Customers {
   static Future<void> postCustomers(Customers customer) async {
     try {
       http.Response response = await http.post(
-          'https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/customers/',
+          'https://ezywash.in/22D92D50C1FFE2697C24336CDCDapi/customers/' as Uri,
           body: {
             "name": customer.name,
             "email": customer.email,

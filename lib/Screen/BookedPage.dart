@@ -97,7 +97,7 @@ class _BookedPageState extends State<BookedPage> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey[500],
+                        color: Colors.grey,
                         offset: Offset(0.0, 1.5),
                         blurRadius: 1.5,
                       ),

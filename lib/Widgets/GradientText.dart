@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class GradientText extends StatelessWidget {
   GradientText({
-    @required this.text,
-    @required this.gradient,
-    @required this.size,
+    required this.text,
+    required this.gradient,
+    required this.size,
   });
 
   final String text;
